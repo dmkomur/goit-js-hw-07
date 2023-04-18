@@ -18,5 +18,29 @@ const imagesToPaste = galleryItems.map(item => {
       
 }
 )
+
 galleryRef.insertAdjacentHTML("beforeend", imagesToPaste.join(''))
 
+galleryRef.addEventListener('click', hendleClickOnImage);
+
+const bigImg = basicLightbox.create(`
+   <img
+          class="gallery__image"
+          src="https://cdn.pixabay.com/photo/2019/05/14/22/05/container-4203677_1280.jpg"
+          data-source=""
+          alt="test"
+        />
+`);
+function hendleClickOnImage(event) {
+    event.preventDefault();
+    if (!event.target.nodeName === 'IMG') return;
+
+    const bigImg = basicLightbox.create(`
+        <img
+          src="${event.target.dataset.source}"
+          alt="${event.target.alt}"
+        />
+`);
+    bigImg.show();
+
+}
