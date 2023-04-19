@@ -28,5 +28,5 @@ function hendleClickOnImage(event) {
     event.preventDefault();
     if (!event.target.nodeName === 'IMG') return;
 const bigImg = new SimpleLightbox('.gallery a')
-bigImg.show();
-}
+  bigImg.open();
+ }
