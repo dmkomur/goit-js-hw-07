@@ -25,14 +25,16 @@ galleryRef.insertAdjacentHTML("beforeend", imagesToPaste.join(''))
 galleryRef.addEventListener('click', hendleClickOnImage);
 
 function hendleClickOnImage(event) {
-    event.preventDefault();
-    if (!event.target.nodeName === 'IMG') return;
+  event.preventDefault();
+  if (!event.target.nodeName === 'IMG') return;
 
-    const bigImg = basicLightbox.create(`
+  const bigImg = basicLightbox.create(`
         <img
           src="${event.target.dataset.source}"
           alt="${event.target.alt}"
         />
-`);
+`,);
   bigImg.show();
+  document.addEventListener('keydown', () => bigImg.close(), { once: true })
+ 
 }
