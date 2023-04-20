@@ -22,11 +22,5 @@ const imagesToPaste = galleryItems.map(item => {
 )
 galleryRef.insertAdjacentHTML("beforeend", imagesToPaste.join(''))
 
-galleryRef.addEventListener('click', hendleClickOnImage);
-
-function hendleClickOnImage(event) {
-    event.preventDefault();
-    if (!event.target.nodeName === 'IMG') return;
 const bigImg = new SimpleLightbox('.gallery a')
-  bigImg.open();
- }
+

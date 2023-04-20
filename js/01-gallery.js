@@ -22,11 +22,12 @@ const imagesToPaste = galleryItems.map(item => {
 
 galleryRef.insertAdjacentHTML("beforeend", imagesToPaste.join(''))
 
+
 galleryRef.addEventListener('click', hendleClickOnImage);
 
 function hendleClickOnImage(event) {
   event.preventDefault();
-  if (!event.target.nodeName === 'IMG') return;
+  if (event.target.nodeName !== 'IMG') return;
 
   const bigImg = basicLightbox.create(`
         <img
@@ -35,6 +36,5 @@ function hendleClickOnImage(event) {
         />
 `,);
   bigImg.show();
-  document.addEventListener('keydown', () => bigImg.close(), { once: true })
- 
+
 }
