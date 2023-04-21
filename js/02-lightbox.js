@@ -21,6 +21,11 @@ const imagesToPaste = galleryItems.map(item => {
 }
 )
 galleryRef.insertAdjacentHTML("beforeend", imagesToPaste.join(''))
+const option = {
+  captionsData: 'alt',
+captionDelay: 250,
+}
 
-const bigImg = new SimpleLightbox('.gallery a')
+const bigImg = new SimpleLightbox('.gallery a', option);
+
 
